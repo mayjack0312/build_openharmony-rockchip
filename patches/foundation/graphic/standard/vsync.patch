@@ -1,0 +1,26 @@
+diff --git a/frameworks/vsync/src/vsync_module_impl.cpp b/frameworks/vsync/src/vsync_module_impl.cpp
+index b1870bf..4c225d9 100644
+--- a/frameworks/vsync/src/vsync_module_impl.cpp
++++ b/frameworks/vsync/src/vsync_module_impl.cpp
+@@ -46,19 +46,9 @@ sptr<VsyncModuleImpl> VsyncModuleImpl::GetInstance()
+ 
+ int64_t VsyncModuleImpl::WaitNextVBlank()
+ {
+-    drmVBlank vblank = {
+-        .request = drmVBlankReq {
+-            .type = DRM_VBLANK_RELATIVE,
+-            .sequence = 1,
+-        }
+-    };
+-
+-    int ret = drmWaitVBlank(drmFd_, &vblank);
+-    if (ret != 0) {
+-        VLOG_ERROR_API(errno, drmWaitVBlank);
+-        return -1;
+-    }
+ 
++    /* 16.6 ms */
++    usleep (16600);
+     auto now = std::chrono::steady_clock::now().time_since_epoch();
+     return (int64_t)std::chrono::duration_cast<std::chrono::nanoseconds>(now).count();
+ }

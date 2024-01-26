@@ -1,0 +1,44 @@
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind-lpddr4-linux.dts b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind-lpddr4-linux.dts
+index 6589bb6853f2..c6e672aa261c 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind-lpddr4-linux.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind-lpddr4-linux.dts
+@@ -121,7 +121,7 @@
+ 	#address-cells = <1>;
+ 	#size-cells = <0>;
+ 	#sound-dai-cells = <0>;
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &hdmi_in_vopl {
+@@ -129,7 +129,7 @@
+ };
+ 
+ &hdmi_sound {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &i2c1 {
+diff --git a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtsi
+index 0f809f490d5f..a9060ddfa99a 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3399-evb-ind.dtsi
+@@ -300,7 +300,7 @@
+ };
+ 
+ &cdn_dp {
+-	status = "okay";
++	status = "disabled";
+ 	extcon = <&fusb0>;
+ 	phys = <&tcphy0_dp>;
+ };
+@@ -429,7 +429,7 @@
+ };
+ 
+ &hdmi {
+-	status = "okay";
++	status = "disabled";
+ };
+ 
+ &i2c0 {

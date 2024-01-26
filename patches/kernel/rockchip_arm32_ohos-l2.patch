@@ -1,0 +1,25 @@
+diff --git a/arch/arm/configs/rockchip_linux_defconfig b/arch/arm/configs/rockchip_linux_defconfig
+index b752dc33845b..861a39fdcefd 100644
+--- a/arch/arm/configs/rockchip_linux_defconfig
++++ b/arch/arm/configs/rockchip_linux_defconfig
+@@ -467,6 +467,7 @@ CONFIG_PHY_ROCKCHIP_INNO_VIDEO_COMBO_PHY=y
+ CONFIG_PHY_ROCKCHIP_INNO_VIDEO_PHY=y
+ CONFIG_PHY_ROCKCHIP_USB=y
+ CONFIG_ANDROID=y
++CONFIG_ANDROID_BINDER_IPC=y
+ CONFIG_ROCKCHIP_EFUSE=y
+ CONFIG_TEE=y
+ CONFIG_OPTEE=y
+diff --git a/include/uapi/linux/android/binder.h b/include/uapi/linux/android/binder.h
+index 36a53fdf3247..bde884494682 100644
+--- a/include/uapi/linux/android/binder.h
++++ b/include/uapi/linux/android/binder.h
+@@ -28,6 +28,8 @@
+ 	((((c1)<<24)) | (((c2)<<16)) | (((c3)<<8)) | (c4))
+ #define B_TYPE_LARGE 0x85
+ 
++#define BINDER_IPC_32BIT 1
++
+ enum {
+ 	BINDER_TYPE_BINDER	= B_PACK_CHARS('s', 'b', '*', B_TYPE_LARGE),
+ 	BINDER_TYPE_WEAK_BINDER	= B_PACK_CHARS('w', 'b', '*', B_TYPE_LARGE),

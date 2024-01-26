@@ -1,0 +1,25 @@
+diff --git a/arch/arm64/configs/rockchip_linux_defconfig b/arch/arm64/configs/rockchip_linux_defconfig
+index 6aac6bc2b8fb..1fef05177aa6 100644
+--- a/arch/arm64/configs/rockchip_linux_defconfig
++++ b/arch/arm64/configs/rockchip_linux_defconfig
+@@ -507,6 +507,7 @@ CONFIG_PHY_ROCKCHIP_SNPS_PCIE3=y
+ CONFIG_PHY_ROCKCHIP_TYPEC=y
+ CONFIG_PHY_ROCKCHIP_USB=y
+ CONFIG_ANDROID=y
++CONFIG_ANDROID_BINDER_IPC=y
+ CONFIG_ROCKCHIP_EFUSE=y
+ CONFIG_ROCKCHIP_OTP=y
+ CONFIG_TEE=y
+diff --git a/include/uapi/linux/android/binder.h b/include/uapi/linux/android/binder.h
+index 36a53fdf3247..bde884494682 100644
+--- a/include/uapi/linux/android/binder.h
++++ b/include/uapi/linux/android/binder.h
+@@ -28,6 +28,8 @@
+ 	((((c1)<<24)) | (((c2)<<16)) | (((c3)<<8)) | (c4))
+ #define B_TYPE_LARGE 0x85
+ 
++#define BINDER_IPC_32BIT 1
++
+ enum {
+ 	BINDER_TYPE_BINDER	= B_PACK_CHARS('s', 'b', '*', B_TYPE_LARGE),
+ 	BINDER_TYPE_WEAK_BINDER	= B_PACK_CHARS('w', 'b', '*', B_TYPE_LARGE),

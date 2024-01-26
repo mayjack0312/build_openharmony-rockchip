@@ -1,0 +1,23 @@
+diff --git a/engine/flutter/shell/platform/ohos/ohos_surface_software.cc b/engine/flutter/shell/platform/ohos/ohos_surface_software.cc
+index 15d41ffa..c915679f 100644
+--- a/engine/flutter/shell/platform/ohos/ohos_surface_software.cc
++++ b/engine/flutter/shell/platform/ohos/ohos_surface_software.cc
+@@ -130,7 +130,7 @@ bool OhosSurfaceSoftware::PresentBackingStore(
+     }
+ 
+     OHOS::BufferRequestConfig requestConfig = {
+-        .width = requestConfig_.width,
++        .width = 1088,
+         .height = requestConfig_.height,
+         .strideAlignment = 8,
+         .format = PIXEL_FMT_RGBA_8888,
+@@ -166,6 +166,9 @@ bool OhosSurfaceSoftware::PresentBackingStore(
+             native_image_info, surfaceBuffer->GetVirAddr(),
+             surfaceBuffer->GetSize() / requestConfig.height);
+ 
++	int rowBytes = surfaceBuffer->GetSize() / requestConfig.height;
++	FML_LOG(ERROR) << "OhosSurfaceSoftware rowBytes: " << rowBytes;
++
+         if (canvas) {
+             SkBitmap bitmap;
+             if (bitmap.installPixels(pixmap)) {
